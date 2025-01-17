@@ -1,3 +1,7 @@
+import matplotlib
+import cv2 as cv
+import sys
+
 def encode_username(username):
     username = username.lower()
     vector = []
@@ -6,8 +10,12 @@ def encode_username(username):
         vector.append(number)
     return vector
 
-def show_image(image):
-    pass
+def show_image(img):
+    if img is None:
+        sys.exit("Could not read the image.")
+
+    cv.imshow("Display window", img)
+    k = cv.waitKey(0)
 
 def main():
     # input name
@@ -18,10 +26,9 @@ def main():
     encoded_username = encode_username(username)
     print("Encoded username: ")
     print(encoded_username)
-    # generate image
-    image = None
     # show image + name
-    show_image(image)
+    img = cv.imread("starry_night.jpg")
+    show_image(img)
 
 if __name__ == '__main__':
     main()
