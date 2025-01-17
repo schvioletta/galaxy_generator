@@ -10,11 +10,10 @@ def encode_username(username):
         vector.append(number)
     return vector
 
-def show_image(img):
+def show_image(img, username):
     if img is None:
         sys.exit("Could not read the image.")
-
-    cv.imshow("Display window", img)
+    cv.imshow("Galaxy of " + username, img)
     k = cv.waitKey(0)
 
 def main():
@@ -28,7 +27,7 @@ def main():
     print(encoded_username)
     # show image + name
     img = cv.imread("starry_night.jpg")
-    show_image(img)
+    show_image(img, username)
 
 if __name__ == '__main__':
     main()
