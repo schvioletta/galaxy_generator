@@ -1,6 +1,7 @@
 import matplotlib
 import cv2 as cv
 import sys
+from generatePics import generate_pic
 
 def encode_username(username):
     username = username.lower()
@@ -10,11 +11,11 @@ def encode_username(username):
         vector.append(number)
     return vector
 
-def show_image(img, username):
-    if img is None:
-        sys.exit("Could not read the image.")
-    cv.imshow("Galaxy of " + username, img)
-    k = cv.waitKey(0)
+#def show_image(img, username):
+#    if img is None:
+#       sys.exit("Could not read the image.")
+#    cv.imshow("Space nebula of" + username, img)
+#    k = cv.waitKey(0)
 
 def main():
     # input name
@@ -26,8 +27,9 @@ def main():
     print("Encoded username: ")
     print(encoded_username)
     # show image + name
-    img = cv.imread("starry_night.jpg")
-    show_image(img, username)
+    #img = cv.imread("starry_night.jpg")
+    #show_image(img, username)
+    generate_pic(username)
 
 if __name__ == '__main__':
     main()
